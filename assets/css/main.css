@@ -1150,3 +1150,38 @@ input, select, textarea {
     display: block !important;
     border-radius: 8px 8px 0 0 !important;
 }
+
+/* FOOTER WITH BACKGROUND IMAGE */
+.footer-with-bg {
+    position: relative;
+    width: 100%;
+    min-height: 100px;
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.footer-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);   /* Dark overlay so text is readable */
+    z-index: 1;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .footer-with-bg { min-height: 150px; }
+    .footer-content p { font-size: 0.9em; }
+}
