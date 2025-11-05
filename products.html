@@ -7,41 +7,11 @@
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-    <!-- Font Awesome CDN (fallback) -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <style>
-        /* === CUSTOM VISIBLE CHECKBOXES === */
-.filter-group input[type="checkbox"] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width: 18px !important;
-    height: 18px !important;
-    border: 2px solid #8B4513 !important;
-    border-radius: 4px !important;
-    margin-right: 10px !important;
-    position: relative !important;
-    cursor: pointer !important;
-    flex-shrink: 0 !important;
-}
-
-.filter-group input[type="checkbox"]:checked {
-    background-color: #8B4513 !important;
-    border-color: #8B4513 !important;
-}
-
-.filter-group input[type="checkbox"]:checked::after {
-    content: '✓';
-    color: white !important;
-    font-weight: bold !important;
-    font-size: 14px !important;
-    position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-}
-		/* === FORCE SCROLL & CLEAN LAYOUT === */
+        /* === FORCE SCROLL & CLEAN LAYOUT === */
         * { box-sizing: border-box; }
         body {
             overflow-y: auto !important;
@@ -58,7 +28,7 @@
             line-height: 1.5 !important;
         }
         #wrapper, #bg, #overlay, #main { display: none !important; }
-        a { color: #333 !important; border-bottom: none !important; text-decoration: none !important; }
+        a { color: #333 !important; text-decoration: none !important; }
 
         /* === HEADER === */
         .site-header {
@@ -97,16 +67,6 @@
         }
         .site-header nav a:hover { color: #8B4513 !important; }
 
-        /* === HERO === */
-        .hero {
-            background: #e2aaaf !important;
-            color: white !important;
-            padding: 40px 20px !important;
-            text-align: center !important;
-        }
-        .hero h1 { margin: 0 0 10px !important; font-size: 2.2em !important; }
-        .hero p { font-size: 1.1em !important; margin: 0 !important; }
-
         /* === MAIN LAYOUT === */
         .main-container {
             display: flex !important;
@@ -137,15 +97,42 @@
         }
         .filter-group { margin-bottom: 20px !important; }
         .filter-group strong { display: block !important; margin-bottom: 8px !important; color: #555 !important; }
-        .filter-group label { display: block !important; margin: 8px 0 !important; font-size: 0.95em !important; }
-        .filter-group input[type="checkbox"] { margin-right: 8px !important; }
-        .price-range { display: flex !important; align-items: center !important; gap: 10px !important; font-size: 0.9em !important; }
-        .price-range input {
-            width: 70px !important;
-            padding: 5px !important;
-            border: 1px solid #ddd !important;
+
+        /* === CUSTOM CHECKBOX + LABEL === */
+        .checkbox-label {
+            display: flex !important;
+            align-items: center !important;
+            margin: 12px 0 !important;
+            font-size: 0.95em !important;
+            cursor: pointer !important;
+            user-select: none !important;
+            gap: 10px !important;
+        }
+        .checkbox-label input[type="checkbox"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 18px !important;
+            height: 18px !important;
+            border: 2px solid #8B4513 !important;
             border-radius: 4px !important;
-            color: #333 !important;
+            position: relative !important;
+            flex-shrink: 0 !important;
+            margin: 0 !important;
+        }
+        .checkbox-label input[type="checkbox"]:checked {
+            background-color: #8B4513 !important;
+            border-color: #8B4513 !important;
+        }
+        .checkbox-label input[type="checkbox"]:checked::after {
+            content: '✓';
+            color: white !important;
+            font-weight: bold !important;
+            font-size: 13px !important;
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
         }
 
         /* === MOBILE FILTER TOGGLE === */
@@ -170,7 +157,11 @@
             align-items: center !important;
             margin-bottom: 20px !important;
         }
-        .sort-select { padding: 8px !important; border: 1px solid #ddd !important; border-radius: 4px !important; }
+        .sort-select {
+            padding: 8px !important;
+            border: 1px solid #ddd !important;
+            border-radius: 4px !important;
+        }
         .product-grid {
             display: grid !important;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
@@ -232,15 +223,14 @@
             margin-top: 50px !important;
             font-size: 0.9em !important;
         }
-        footer a { color: #ccc !important; text-decoration: none !important; }
     </style>
 </head>
 <body>
 
     <!-- HEADER -->
     <header class="site-header">
-        <h1 class="shop-logo">Patterns By Yvonne</h1>
-        <p>Products Showcase</p>
+        <h1 class="shop-logo">PatternsByYvonne</h1>
+        <p>Content creator | Crafter | Sewist | Graphic designer</p>
         <nav>
             <ul>
                 <li><a href="https://yvonnechow.com/index" class="icon solid fa-home"><span class="label">Home</span></a></li>
@@ -256,21 +246,25 @@
     <div class="main-container">
 
         <!-- MOBILE FILTER BUTTON -->
-        <button class="mobile-filter-toggle" onclick="toggleFilter()">
-            <i class="fas fa-filter"></i> Filters
-        </button>
+        <button class="mobile-filter-toggle" onclick="toggleFilter()">Filters</button>
 
-        <!-- FILTER SIDEBAR (ONLY Category + Price) -->
-      <aside class="filter-sidebar" id="filterSidebar">
+        <!-- FILTER SIDEBAR (ONLY CATEGORY) -->
+        <aside class="filter-sidebar" id="filterSidebar">
             <h3>Filter By</h3>
 
-		  <!-- Category -->
-<div class="filter-group">
-    <strong>Category</strong>
-    <label class="checkbox-label"> <input type="checkbox" value="All"> All Patterns </label>
-    <label class="checkbox-label"> <input type="checkbox" value="Bags"> Bags & Totes </label>
-    <label class="checkbox-label"> <input type="checkbox" value="Organizers"> Organizers </label>
-</div>  
+            <!-- Category -->
+            <div class="filter-group">
+                <strong>Category</strong>
+                <label class="checkbox-label">
+                    <input type="checkbox" value="bags"> Bags & Totes
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" value="organizers"> Organizers
+                </label>
+            </div>
+
+            <button class="btn" style="width:100%;margin-top:10px;" onclick="applyFilters()">Apply Filters</button>
+            <button class="btn" style="width:100%;margin-top:8px;background:#666;" onclick="clearFilters()">Clear All</button>
         </aside>
 
         <!-- PRODUCTS -->
@@ -287,49 +281,47 @@
 
             <div class="product-grid">
                 <!-- Product 1 -->
-                <div class="product-card" data-price="100" data-category="Organizers">
-                    <div class="product-image">Open-Up Pouch</div>
-                    <div class="product-info">
-                        <div class="product-title">Open-Up Pouch Sewing Pattern</div>
-                        <div class="product-price">HK$100</div>
-                        <div class="product-desc">Instant download PDF sewing pattern with full video and written instructions.</div>
-                        <a href="#" class="btn">View Product</a>
-                    </div>
-                </div>
-
-                <!-- Product 2 -->
-                <div class="product-card" data-price="100" data-category="Organizers">
-                    <div class="product-image">Camile Double-Sided Compression Packing Cube Sewing Pattern</div>
+                <div class="product-card" data-price="100" data-category="organizers">
+                    <div class="product-image">Camile Packing Cube</div>
                     <div class="product-info">
                         <div class="product-title">Camile Double-Sided Compression Packing Cube Sewing Pattern (2 Sizes)</div>
                         <div class="product-price">HK$100</div>
                         <div class="product-desc">Instant download PDF sewing pattern with full video and written instructions.</div>
-                        <a href="#" class="btn">View Product</a>
+                        <a href="#" class="btn">View Product Details</a>
                     </div>
                 </div>
 
-                <!-- Product 3 -->
-                <div class="product-card" data-price="90" data-category="Bags">
+                <!-- Product 2 -->
+                <div class="product-card" data-price="90" data-category="bags">
                     <div class="product-image">Charlotte Tote Bag</div>
                     <div class="product-info">
                         <div class="product-title">Charlotte Tote Bag Sewing Pattern</div>
                         <div class="product-price">HK$90</div>
                         <div class="product-desc">Instant download PDF sewing pattern with full video and written instructions.</div>
-                        <a href="#" class="btn">View Product</a>
+                        <a href="#" class="btn">View Product Details</a>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card" data-price="90" data-category="bags">
+                    <div class="product-image">Charmaine Drawstring Bag</div>
+                    <div class="product-info">
+                        <div class="product-title">Charmaine Drawstring Bag Sewing Pattern</div>
+                        <div class="product-price">HK$90</div>
+                        <div class="product-desc">Instant download PDF sewing pattern with full video and written instructions.</div>
+                        <a href="#" class="btn">View Product Details</a>
                     </div>
                 </div>
 
                 <!-- Product 4 -->
-                <div class="product-card" data-price="90" data-category="Bags">
-                    <div class="product-image">Charmaine Drawstring Bag Sewing Pattern</div>
+                <div class="product-card" data-price="100" data-category="organizers">
+                    <div class="product-image">Open-Up Pouch</div>
                     <div class="product-info">
-                        <div class="product-title">Charmaine Drawstring Bag Sewing Pattern</div>
-                        <div class="product-price">HK$90</div>
-                        <div class="product-desc">Matching top and shorts pattern for ultimate comfort. Sizes from kids to adult.</div>
-                        <a href="#" class="btn">View Product</a>
+                        <div class="product-title">Open-Up Pouch Sewing Pattern</div>
+                        <div class="product-price">HK$100</div>
+                        <div class="product-desc">Compact crossbody with adjustable strap and zipper pocket. Perfect for daily use.</div>
+                        <a href="#" class="btn">View Product Details</a>
                     </div>
-                </div>
-                </div>
                 </div>
             </div>
         </section>
@@ -340,7 +332,7 @@
         <p>© 2025 PatternsByYvonne. All rights reserved.</p>
     </footer>
 
-    <!-- FILTER SCRIPT (CLEANED UP) -->
+    <!-- FILTER SCRIPT (CATEGORY ONLY) -->
     <script>
         function toggleFilter() {
             const sidebar = document.getElementById('filterSidebar');
@@ -349,70 +341,55 @@
 
         function applyFilters() {
             const products = document.querySelectorAll('.product-card');
-            const minPrice = parseFloat(document.getElementById('minPrice')?.value) || 0;
-            const maxPrice = parseFloat(document.getElementById('maxPrice')?.value) || 100;
-
             const selectedCategories = Array.from(
-                document.querySelectorAll('input[type="checkbox"]:checked')
-            ).map(cb => cb.value);
+                document.querySelectorAll('.checkbox-label input[type="checkbox"]:checked')
+            ).map(cb => cb.value.toLowerCase());
 
             let visibleCount = 0;
             products.forEach(product => {
-                const price = parseFloat(product.dataset.price) || 0;
-                const category = product.dataset.category || '';
-
-                const priceMatch = price >= minPrice && price <= maxPrice;
+                const category = (product.dataset.category || '').toLowerCase();
                 const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(category);
 
-                const show = priceMatch && categoryMatch;
-                product.style.display = show ? 'block' : 'none';
-                if (show) visibleCount++;
+                product.style.display = categoryMatch ? 'block' : 'none';
+                if (categoryMatch) visibleCount++;
             });
 
-            // Update count
             const header = document.querySelector('h2');
             if (header) header.textContent = `Featured Patterns (${visibleCount})`;
 
-            // Auto-hide on mobile
             if (window.innerWidth <= 992) {
                 document.getElementById('filterSidebar')?.classList.remove('active');
             }
         }
 
         function clearFilters() {
-            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
-            document.getElementById('minPrice').value = 0;
-            document.getElementById('maxPrice').value = 20;
+            document.querySelectorAll('.checkbox-label input[type="checkbox"]').forEach(cb => cb.checked = false);
             document.querySelectorAll('.product-card').forEach(p => p.style.display = 'block');
-            document.querySelector('h2').textContent = 'Featured Patterns (6)';
+            document.querySelector('h2').textContent = 'Featured Patterns (4)';
         }
 
         function sortProducts(sortBy) {
             const grid = document.querySelector('.product-grid');
-            const products = Array.from(grid.children);
-            switch (sortBy) {
-                case 'price-low':
-                    products.sort((a, b) => parseFloat(a.dataset.price) - parseFloat(b.dataset.price));
-                    break;
-                case 'price-high':
-                    products.sort((a, b) => parseFloat(b.dataset.price) - parseFloat(a.dataset.price));
-                    break;
-                case 'newest':
-                    products.reverse();
-                    break;
-                default:
-                    products.sort(() => Math.random() - 0.5);
-            }
+            const items = Array.from(grid.children);
+
+            items.sort((a, b) => {
+                const pa = parseFloat(a.dataset.price);
+                const pb = parseFloat(b.dataset.price);
+                if (sortBy === 'price-low') return pa - pb;
+                if (sortBy === 'price-high') return pb - pa;
+                if (sortBy === 'newest') return items.indexOf(b) - items.indexOf(a);
+                return 0;
+            });
+
             grid.innerHTML = '';
-            products.forEach(p => grid.appendChild(p));
+            items.forEach(item => grid.appendChild(item));
             applyFilters();
         }
 
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('input[type="checkbox"], #minPrice, #maxPrice')
-                .forEach(input => input.addEventListener('change', applyFilters));
-            applyFilters(); // Initial filter
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.checkbox-label input')
+                .forEach(el => el.addEventListener('change', applyFilters));
+            applyFilters();
         });
     </script>
 </body>
