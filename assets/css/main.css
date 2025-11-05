@@ -1082,3 +1082,71 @@ input, select, textarea {
 		#header nav {
 			padding: 0 1em;
 		} }
+
+
+/* CUSTOM CHECKBOX */
+.filter-group input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 18px !important;
+    height: 18px !important;
+    border: 2px solid #8B4513 !important;
+    border-radius: 4px !important;
+    margin-right: 10px !important;
+    position: relative !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+}
+.filter-group input[type="checkbox"]:checked {
+    background-color: #8B4513 !important;
+    border-color: #8B4513 !important;
+}
+.filter-group input[type="checkbox"]:checked::after {
+    content: '✓';
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 14px !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+/* LABEL CURSOR */
+.checkbox-label {
+    display: flex !important;
+    align-items: center !important;
+    margin: 10px 0 !important;
+    font-size: 0.95em !important;
+    cursor: pointer !important;
+    user-select: none !important;
+    gap: 8px !important;
+}
+
+/* === PERFECTLY CENTERED CHECKBOX + TEXT === */
+.checkbox-label {
+    display: flex !important;
+    align-items: center !important;     /* VERTICAL CENTER */
+    justify-content: flex-start !important;
+    margin: 12px 0 !important;
+    font-size: 0.95em !important;
+    cursor: pointer !important;
+    user-select: none !important;
+    gap: 10px !important;               /* Space between checkbox and text */
+    line-height: 1.4 !important;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin: 0 !important;               /* Remove default margin */
+    flex-shrink: 0 !important;          /* Prevent shrinking */
+}
+
+/* === RESPONSIVE PRODUCT IMAGES === */
+.product-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;   /* Keeps aspect ratio, no stretching */
+    display: block !important;
+    border-radius: 8px 8px 0 0 !important;
+}
