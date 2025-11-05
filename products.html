@@ -7,252 +7,210 @@
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
+    <!-- Font Awesome CDN (fallback) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <style>
-        /* === ENABLE SCROLLING & FIX LAYOUT === */
+        /* === FORCE SCROLL & CLEAN LAYOUT === */
+        * { box-sizing: border-box; }
         body {
             overflow-y: auto !important;
             overflow-x: hidden !important;
             position: relative !important;
             height: auto !important;
-            min-height: 100vh;
-            background: #f9f9f9;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            color: #333;
+            min-height: 100vh !important;
+            background: #f9f9f9 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            font-family: Arial, sans-serif !important;
+            color: #333 !important;
+            font-size: 14pt !important;
+            line-height: 1.5 !important;
         }
-
-        #wrapper, #bg, #overlay {
-            display: none !important;
-        }
+        #wrapper, #bg, #overlay, #main { display: none !important; }
+        a { color: #333 !important; border-bottom: none !important; text-decoration: none !important; }
 
         /* === HEADER === */
         .site-header {
-            background: #e2aaaf;
-            padding: 20px;
-            border-bottom: 1px solid #ddd;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background: #fff !important;
+            padding: 20px !important;
+            border-bottom: 1px solid #ddd !important;
+            text-align: center !important;
+            position: sticky !important;
+            top: 0 !important;
+            z-index: 1000 !important;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
         }
         .site-header .shop-logo {
-            font-size: 2em;
-            color: white;
-            font-weight: bold;
-            margin: 0;
+            font-size: 2em !important;
+            color: #8B4513 !important;
+            font-weight: bold !important;
+            margin: 0 !important;
         }
         .site-header p {
-            margin: 8px 0 15px;
-            font-size: 1.1em;
-            color: #666;
+            margin: 8px 0 15px !important;
+            font-size: 1.1em !important;
+            color: #666 !important;
         }
         .site-header nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 0;
+            list-style: none !important;
+            padding: 0 !important;
+            display: flex !important;
+            justify-content: center !important;
+            gap: 20px !important;
+            margin: 0 !important;
         }
         .site-header nav a {
-            color: #333;
-            font-size: 1.6em;
-            transition: color .2s;
+            color: #333 !important;
+            font-size: 1.6em !important;
+            transition: color .2s !important;
         }
-        .site-header nav a:hover {
-            color: white;
+        .site-header nav a:hover { color: #8B4513 !important; }
+
+        /* === HERO === */
+        .hero {
+            background: #e2aaaf !important;
+            color: white !important;
+            padding: 40px 20px !important;
+            text-align: center !important;
         }
+        .hero h1 { margin: 0 0 10px !important; font-size: 2.2em !important; }
+        .hero p { font-size: 1.1em !important; margin: 0 !important; }
+
         /* === MAIN LAYOUT === */
         .main-container {
-            display: flex;
-            max-width: 1200px;
-            margin: 20px auto;
-            gap: 20px;
-            padding: 0 15px;
+            display: flex !important;
+            max-width: 1200px !important;
+            margin: 20px auto !important;
+            gap: 20px !important;
+            padding: 0 15px !important;
         }
 
         /* === FILTER SIDEBAR === */
         .filter-sidebar {
-            width: 280px;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            height: fit-content;
-            position: sticky;
-            top: 100px;
+            width: 280px !important;
+            background: white !important;
+            padding: 20px !important;
+            border-radius: 8px !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+            height: fit-content !important;
+            position: sticky !important;
+            top: 100px !important;
+            color: #333 !important;
         }
         .filter-sidebar h3 {
-            margin-top: 0;
-            color: #8B4513;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 8px;
-            font-size: 1.2em;
+            margin-top: 0 !important;
+            color: #8B4513 !important;
+            border-bottom: 2px solid #eee !important;
+            padding-bottom: 8px !important;
+            font-size: 1.2em !important;
         }
-        .filter-group {
-            margin-bottom: 20px;
-        }
-        .filter-group strong {
-            display: block;
-            margin-bottom: 8px;
-            color: #555;
-        }
-        .filter-group label {
-            display: block;
-            margin: 8px 0;
-            font-size: 0.95em;
-        }
-        .filter-group input[type="checkbox"] {
-            margin-right: 8px;
-        }
-        .price-range {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.9em;
-        }
+        .filter-group { margin-bottom: 20px !important; }
+        .filter-group strong { display: block !important; margin-bottom: 8px !important; color: #555 !important; }
+        .filter-group label { display: block !important; margin: 8px 0 !important; font-size: 0.95em !important; }
+        .filter-group input[type="checkbox"] { margin-right: 8px !important; }
+        .price-range { display: flex !important; align-items: center !important; gap: 10px !important; font-size: 0.9em !important; }
         .price-range input {
-            width: 70px;
-            padding: 5px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        .rating-filter {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 0.9em;
-        }
-        .stars {
-            color: #f39c12;
+            width: 70px !important;
+            padding: 5px !important;
+            border: 1px solid #ddd !important;
+            border-radius: 4px !important;
+            color: #333 !important;
         }
 
         /* === MOBILE FILTER TOGGLE === */
         .mobile-filter-toggle {
-            display: none;
-            background: #8B4513;
-            color: white;
-            border: none;
-            padding: 12px;
-            font-size: 1em;
-            width: 100%;
-            cursor: pointer;
-            border-radius: 6px;
-            margin-bottom: 15px;
+            display: none !important;
+            background: #8B4513 !important;
+            color: white !important;
+            border: none !important;
+            padding: 12px !important;
+            font-size: 1em !important;
+            width: 100% !important;
+            cursor: pointer !important;
+            border-radius: 6px !important;
+            margin-bottom: 15px !important;
         }
 
         /* === PRODUCTS === */
-        .products-area {
-            flex: 1;
-        }
+        .products-area { flex: 1 !important; }
         .products-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            margin-bottom: 20px !important;
         }
-        .sort-select {
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
+        .sort-select { padding: 8px !important; border: 1px solid #ddd !important; border-radius: 4px !important; }
         .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+            gap: 20px !important;
         }
         .product-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
+            background: white !important;
+            border-radius: 8px !important;
+            overflow: hidden !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+            transition: transform 0.2s !important;
         }
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
+        .product-card:hover { transform: translateY(-5px) !important; }
         .product-image {
-            width: 100%;
-            height: 200px;
-            background: #eee;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 0.9em;
+            width: 100% !important;
+            height: 200px !important;
+            background: #eee !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: #999 !important;
+            font-size: 0.9em !important;
         }
-        .product-info {
-            padding: 15px;
-        }
-        .product-title {
-            font-weight: bold;
-            margin-bottom: 5px;
-            font-size: 1.1em;
-        }
-        .product-price {
-            color: #8B4513;
-            font-size: 1.2em;
-            margin-bottom: 8px;
-        }
+        .product-info { padding: 15px !important; }
+        .product-title { font-weight: bold !important; margin-bottom: 5px !important; font-size: 1.1em !important; }
+        .product-price { color: #8B4513 !important; font-size: 1.2em !important; margin-bottom: 8px !important; }
         .product-desc {
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 10px;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+            font-size: 0.9em !important;
+            color: #666 !important;
+            margin-bottom: 10px !important;
+            display: -webkit-box !important;
+            -webkit-line-clamp: 2 !important;
+            -webkit-box-orient: vertical !important;
+            overflow: hidden !important;
         }
         .btn {
-            background: #8B4513;
-            color: white;
-            padding: 8px 16px;
-            text-decoration: none;
-            border-radius: 4px;
-            display: inline-block;
-            font-size: 0.9em;
+            background: #8B4513 !important;
+            color: white !important;
+            padding: 8px 16px !important;
+            border-radius: 4px !important;
+            display: inline-block !important;
+            font-size: 0.9em !important;
         }
 
         /* === RESPONSIVE === */
         @media (max-width: 992px) {
-            .main-container {
-                flex-direction: column;
-            }
-            .filter-sidebar {
-                width: 100%;
-                position: static;
-                display: none;
-            }
-            .filter-sidebar.active {
-                display: block;
-            }
-            .mobile-filter-toggle {
-                display: block;
-            }
+            .main-container { flex-direction: column !important; }
+            .filter-sidebar { width: 100% !important; position: static !important; display: none !important; }
+            .filter-sidebar.active { display: block !important; }
+            .mobile-filter-toggle { display: block !important; }
         }
 
         /* === FOOTER === */
         footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 25px;
-            margin-top: 50px;
-            font-size: 0.9em;
+            background: #333 !important;
+            color: white !important;
+            text-align: center !important;
+            padding: 25px !important;
+            margin-top: 50px !important;
+            font-size: 0.9em !important;
         }
-        footer a {
-            color: #ccc;
-            text-decoration: none;
-        }
+        footer a { color: #ccc !important; text-decoration: none !important; }
     </style>
 </head>
 <body>
 
-    <!-- HEADER WITH ICONS -->
-<header class="site-header">
-        <h1 class="shop-logo">Patterns by Yvonne</h1>
+    <!-- HEADER -->
+    <header class="site-header">
+        <h1 class="shop-logo">Patterns By Yvonne</h1>
+        <p>Products Showcase</p>
         <nav>
             <ul>
                 <li><a href="https://yvonnechow.com/index" class="icon solid fa-home"><span class="label">Home</span></a></li>
@@ -272,180 +230,126 @@
             <i class="fas fa-filter"></i> Filters
         </button>
 
-        <!-- FILTER SIDEBAR -->
-        <aside class="filter-sidebar" id="filterSidebar">
+        <!-- FILTER SIDEBAR (ONLY Category + Price) -->
+      <aside class="filter-sidebar" id="filterSidebar">
             <h3>Filter By</h3>
 
             <!-- Category -->
-            <div class="filter-group">
+        <div class="filter-group">
                 <strong>Category</strong>
-                <label><input type="checkbox" value="clothing"> Clothing</label>
-                <label><input type="checkbox" value="bags"> Bags & Totes</label>
-                <label><input type="checkbox" value="accessories"> Accessories</label>
-                <label><input type="checkbox" value="home"> Home Decor</label>
-                <label><input type="checkbox" value="kids"> Kids & Baby</label>
-            </div>
+			     <label><input type="checkbox" value="All"> All Patterns</label>
+                <label><input type="checkbox" value="Organizers"> Organizers</label>
+                <label><input type="checkbox" value="Bags"> Bags & Totes</label>
+          </div>
 
-            <!-- Price -->
-            <div class="filter-group">
-                <strong>Price</strong>
-                <div class="price-range">
-                    <input type="number" min="0" max="50" value="0" id="minPrice"> -
-                    <input type="number" min="0" max="50" value="20" id="maxPrice">
-                </div>
-                <small>Max $50</small>
-            </div>
-
-            <!-- Rating -->
-            <div class="filter-group">
-                <strong>Rating</strong>
-                <label class="rating-filter">
-                    <input type="checkbox" value="5"> 
-                    <span class="stars">★★★★★</span> <small>(5)</small>
-                </label>
-                <label class="rating-filter">
-                    <input type="checkbox" value="4"> 
-                    <span class="stars">★★★★☆</span> <small>& up</small>
-                </label>
-                <label class="rating-filter">
-                    <input type="checkbox" value="3"> 
-                    <span class="stars">★★★☆☆</span> <small>& up</small>
-                </label>
-            </div>
-
-            <!-- Availability -->
-            <div class="filter-group">
-                <strong>Availability</strong>
-                <label><input type="checkbox" value="digital" checked> Digital Download</label>
-                <label><input type="checkbox" value="print"> Printed Pattern</label>
-            </div>
-
-            <button class="btn" style="width:100%;margin-top:10px;" onclick="applyFilters()">Apply Filters</button>
+          <!-- Price -->
+<button class="btn" style="width:100%;margin-top:10px;" onclick="applyFilters()">Apply Filters</button>
             <button class="btn" style="width:100%;margin-top:8px;background:#666;" onclick="clearFilters()">Clear All</button>
         </aside>
 
         <!-- PRODUCTS -->
         <section class="products-area">
             <div class="products-header">
-                <h2>Products Showcase</h2>
-</div>
+                <h2>Featured Patterns</h2>
+                <select class="sort-select" onchange="sortProducts(this.value)">
+                    <option value="relevance">Sort by: Relevance</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="newest">Newest First</option>
+                </select>
+            </div>
 
             <div class="product-grid">
                 <!-- Product 1 -->
-                <div class="product-card" data-price="8" data-category="clothing" data-rating="5">
-                    <div class="product-image">Cozy Hoodie Pattern</div>
+                <div class="product-card" data-category="Organizers">
+                    <div class="product-image">Open-Up Pouch</div>
                     <div class="product-info">
-                        <div class="product-title">Cozy Hoodie Sewing Pattern</div>
-                        <div class="product-price">$8.00</div>
-                        <div class="product-desc">Easy-to-sew hoodie pattern with multiple size options (XS-XXL). Perfect for fall layering.</div>
-                        <div><small class="stars">★★★★★</small> 48 reviews</div>
-                        <a href="#" class="btn">Add to Cart</a>
+                        <div class="product-title">Open-Up Pouch Sewing Pattern</div>
+                        <div class="product-price">HK$100</div>
+                        <div class="product-desc">Instant download PDF sewing pattern with full video and written instructions.</div>
+                        <a href="#" class="btn">View Product</a>
                     </div>
                 </div>
 
                 <!-- Product 2 -->
-                <div class="product-card" data-price="6.5" data-category="clothing" data-rating="4">
-                    <div class="product-image">Summer Dress Pattern</div>
+                <div class="product-card" data-category="Organizers">
+                    <div class="product-image">Camile Double-Sided Compression Packing Cube Sewing Pattern</div>
                     <div class="product-info">
-                        <div class="product-title">Flowy Summer Dress Pattern</div>
-                        <div class="product-price">$6.50</div>
-                        <div class="product-desc">Lightweight maxi dress PDF pattern. Includes instructions for pockets and adjustable straps.</div>
-                        <div><small class="stars">★★★★☆</small> 32 reviews</div>
-                        <a href="#" class="btn">Add to Cart</a>
+                        <div class="product-title">Camile Double-Sided Compression Packing Cube Sewing Pattern (2 Sizes)</div>
+                        <div class="product-price">HK$100</div>
+                        <div class="product-desc">Instant download PDF sewing pattern with full video and written instructions.</div>
+                        <a href="#" class="btn">View Product</a>
                     </div>
                 </div>
 
                 <!-- Product 3 -->
-                <div class="product-card" data-price="5" data-category="bags" data-rating="5">
-                    <div class="product-image">Tote Bag Pattern</div>
+                <div class="product-card" data-category="Bags">
+                    <div class="product-image">Charlotte Tote Bag</div>
                     <div class="product-info">
-                        <div class="product-title">Market Tote Bag Pattern</div>
-                        <div class="product-price">$5.00</div>
-                        <div class="product-desc">Spacious tote with lining and magnetic snap. Great for shopping or beach days.</div>
-                        <div><small class="stars">★★★★★</small> 89 reviews</div>
-                        <a href="#" class="btn">Add to Cart</a>
+                        <div class="product-title">Charlotte Tote Bag Sewing Pattern</div>
+                        <div class="product-price">HK$90</div>
+                        <div class="product-desc">Instant download PDF sewing pattern with full video and written instructions.</div>
+                        <a href="#" class="btn">View Product</a>
                     </div>
                 </div>
 
                 <!-- Product 4 -->
-                <div class="product-card" data-price="9.5" data-category="clothing" data-rating="5">
-                    <div class="product-image">Pajama Set Pattern</div>
+                <div class="product-card" data-category="Bags">
+                    <div class="product-image">Charmaine Drawstring Bag Sewing Pattern</div>
                     <div class="product-info">
-                        <div class="product-title">Cozy Pajama Set Pattern</div>
-                        <div class="product-price">$9.50</div>
+                        <div class="product-title">Charmaine Drawstring Bag Sewing Pattern</div>
+                        <div class="product-price">HK$90</div>
                         <div class="product-desc">Matching top and shorts pattern for ultimate comfort. Sizes from kids to adult.</div>
-                        <div><small class="stars">★★★★★</small> 61 reviews</div>
-                        <a href="#" class="btn">Add to Cart</a>
+                        <a href="#" class="btn">View Product</a>
                     </div>
                 </div>
-
-                <!-- Product 5 -->
-                <div class="product-card" data-price="4" data-category="home" data-rating="4">
-                    <div class="product-image">Apron Pattern</div>
-                    <div class="product-info">
-                        <div class="product-title">Chef's Apron Pattern</div>
-                        <div class="product-price">$4.00</div>
-                        <div class="product-desc">Stylish half-apron with ruffles and pockets. Ideal for kitchen enthusiasts.</div>
-                        <div><small class="stars">★★★★☆</small> 55 reviews</div>
-                        <a href="#" class="btn">Add to Cart</a>
-                    </div>
                 </div>
-
-                <!-- Product 6 -->
-                <div class="product-card" data-price="7" data-category="kids" data-rating="5">
-                    <div class="product-image">Baby Onesie Pattern</div>
-                    <div class="product-info">
-                        <div class="product-title">Baby Onesie Sewing Pattern</div>
-                        <div class="product-price">$7.00</div>
-                        <div class="product-desc">Adorable snap-front onesie pattern for newborns to 24 months. Soft fabrics recommended.</div>
-                        <div><small class="stars">★★★★★</small> 72 reviews</div>
-                        <a href="#" class="btn">Add to Cart</a>
-                    </div>
                 </div>
             </div>
         </section>
-</div>
+    </div>
 
     <!-- FOOTER -->
-<footer>
-        <p>© 2025 PatternsByYvonne. All rights reserved. | Inspired by Etsy Shop</p>
-        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    <footer>
+        <p>© 2025 PatternsByYvonne. All rights reserved.</p>
     </footer>
 
-    <!-- FILTER SCRIPT -->
-<script>
+    <!-- FILTER SCRIPT (CLEANED UP) -->
+    <script>
         function toggleFilter() {
             const sidebar = document.getElementById('filterSidebar');
-            sidebar.classList.toggle('active');
+            if (sidebar) sidebar.classList.toggle('active');
         }
 
         function applyFilters() {
             const products = document.querySelectorAll('.product-card');
-            const minPrice = parseFloat(document.getElementById('minPrice').value) || 0;
-            const maxPrice = parseFloat(document.getElementById('maxPrice').value) || 100;
+            const minPrice = parseFloat(document.getElementById('minPrice')?.value) || 0;
+            const maxPrice = parseFloat(document.getElementById('maxPrice')?.value) || 100;
 
             const selectedCategories = Array.from(
-                document.querySelectorAll('input[value][type="checkbox"]:checked')
+                document.querySelectorAll('input[type="checkbox"]:checked')
             ).map(cb => cb.value);
 
-            const selectedRatings = Array.from(
-                document.querySelectorAll('input[value="3"], input[value="4"], input[value="5"]:checked')
-            ).map(cb => parseInt(cb.value));
-
+            let visibleCount = 0;
             products.forEach(product => {
-                const price = parseFloat(product.dataset.price);
-                const category = product.dataset.category;
-                const rating = parseInt(product.dataset.rating);
+                const price = parseFloat(product.dataset.price) || 0;
+                const category = product.dataset.category || '';
 
                 const priceMatch = price >= minPrice && price <= maxPrice;
                 const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(category);
-                const ratingMatch = selectedRatings.length === 0 || selectedRatings.some(r => rating >= r);
 
-                product.style.display = (priceMatch && categoryMatch && ratingMatch) ? 'block' : 'none';
+                const show = priceMatch && categoryMatch;
+                product.style.display = show ? 'block' : 'none';
+                if (show) visibleCount++;
             });
 
+            // Update count
+            const header = document.querySelector('h2');
+            if (header) header.textContent = `Featured Patterns (${visibleCount})`;
+
+            // Auto-hide on mobile
             if (window.innerWidth <= 992) {
-                document.getElementById('filterSidebar').classList.remove('active');
+                document.getElementById('filterSidebar')?.classList.remove('active');
             }
         }
 
@@ -454,11 +358,36 @@
             document.getElementById('minPrice').value = 0;
             document.getElementById('maxPrice').value = 20;
             document.querySelectorAll('.product-card').forEach(p => p.style.display = 'block');
+            document.querySelector('h2').textContent = 'Featured Patterns (6)';
         }
 
-        // Real-time filtering
-        document.querySelectorAll('input[type="checkbox"], #minPrice, #maxPrice')
-            .forEach(input => input.addEventListener('change', applyFilters));
+        function sortProducts(sortBy) {
+            const grid = document.querySelector('.product-grid');
+            const products = Array.from(grid.children);
+            switch (sortBy) {
+                case 'price-low':
+                    products.sort((a, b) => parseFloat(a.dataset.price) - parseFloat(b.dataset.price));
+                    break;
+                case 'price-high':
+                    products.sort((a, b) => parseFloat(b.dataset.price) - parseFloat(a.dataset.price));
+                    break;
+                case 'newest':
+                    products.reverse();
+                    break;
+                default:
+                    products.sort(() => Math.random() - 0.5);
+            }
+            grid.innerHTML = '';
+            products.forEach(p => grid.appendChild(p));
+            applyFilters();
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('input[type="checkbox"], #minPrice, #maxPrice')
+                .forEach(input => input.addEventListener('change', applyFilters));
+            applyFilters(); // Initial filter
+        });
     </script>
 </body>
 </html>
