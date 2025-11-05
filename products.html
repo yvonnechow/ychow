@@ -1,396 +1,1152 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>PatternsByYvonne - Shop</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900");
+@import url("fontawesome-all.min.css");
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+/*
+	Aerial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
 
-    <style>
-        /* === FORCE SCROLL & CLEAN LAYOUT === */
-        * { box-sizing: border-box; }
-        body {
-            overflow-y: auto !important;
-            overflow-x: hidden !important;
-            position: relative !important;
-            height: auto !important;
-            min-height: 100vh !important;
-            background: #f9f9f9 !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            font-family: Arial, sans-serif !important;
-            color: #333 !important;
-            font-size: 14pt !important;
-            line-height: 1.5 !important;
-        }
-        #wrapper, #bg, #overlay, #main { display: none !important; }
-        a { color: #333 !important; text-decoration: none !important; }
+html, body, div, span, applet, object,
+iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, a, abbr, acronym, address, big, cite,
+code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b,
+u, i, center, dl, dt, dd, ol, ul, li, fieldset,
+form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside,
+canvas, details, embed, figure, figcaption,
+footer, header, hgroup, menu, nav, output, ruby,
+section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;}
 
-        /* === HEADER === */
-        .site-header {
-            background: #fff !important;
-            padding: 20px !important;
-            border-bottom: 1px solid #ddd !important;
-            text-align: center !important;
-            position: sticky !important;
-            top: 0 !important;
-            z-index: 1000 !important;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
-        }
-        .site-header .shop-logo {
-            font-size: 2em !important;
-            color: #8B4513 !important;
-            font-weight: bold !important;
-            margin: 0 !important;
-        }
-        .site-header p {
-            margin: 8px 0 15px !important;
-            font-size: 1.1em !important;
-            color: #666 !important;
-        }
-        .site-header nav ul {
-            list-style: none !important;
-            padding: 0 !important;
-            display: flex !important;
-            justify-content: center !important;
-            gap: 20px !important;
-            margin: 0 !important;
-        }
-        .site-header nav a {
-            color: #333 !important;
-            font-size: 1.6em !important;
-            transition: color .2s !important;
-        }
-        .site-header nav a:hover { color: #8B4513 !important; }
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;}
 
-        /* === MAIN LAYOUT === */
-        .main-container {
-            display: flex !important;
-            max-width: 1200px !important;
-            margin: 20px auto !important;
-            gap: 20px !important;
-            padding: 0 15px !important;
-        }
+body {
+	line-height: 1;
+}
 
-        /* === FILTER SIDEBAR === */
-        .filter-sidebar {
-            width: 280px !important;
-            background: white !important;
-            padding: 20px !important;
-            border-radius: 8px !important;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
-            height: fit-content !important;
-            position: sticky !important;
-            top: 100px !important;
-            color: #333 !important;
-        }
-        .filter-sidebar h3 {
-            margin-top: 0 !important;
-            color: #8B4513 !important;
-            border-bottom: 2px solid #eee !important;
-            padding-bottom: 8px !important;
-            font-size: 1.2em !important;
-        }
-        .filter-group { margin-bottom: 20px !important; }
-        .filter-group strong { display: block !important; margin-bottom: 8px !important; color: #555 !important; }
+ol, ul {
+	list-style: none;
+}
 
-        /* === CUSTOM CHECKBOX + LABEL === */
-        .checkbox-label {
-            display: flex !important;
-            align-items: center !important;
-            margin: 12px 0 !important;
-            font-size: 0.95em !important;
-            cursor: pointer !important;
-            user-select: none !important;
-            gap: 10px !important;
-        }
-        .checkbox-label input[type="checkbox"] {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            width: 18px !important;
-            height: 18px !important;
-            border: 2px solid #8B4513 !important;
-            border-radius: 4px !important;
-            position: relative !important;
-            flex-shrink: 0 !important;
-            margin: 0 !important;
-        }
-        .checkbox-label input[type="checkbox"]:checked {
-            background-color: #8B4513 !important;
-            border-color: #8B4513 !important;
-        }
-        .checkbox-label input[type="checkbox"]:checked::after {
-            content: '✓';
-            color: white !important;
-            font-weight: bold !important;
-            font-size: 13px !important;
-            position: absolute !important;
-            top: 50% !important;
-            left: 50% !important;
-            transform: translate(-50%, -50%) !important;
-        }
+blockquote, q {
+	quotes: none;
+}
 
-        /* === MOBILE FILTER TOGGLE === */
-        .mobile-filter-toggle {
-            display: none !important;
-            background: #8B4513 !important;
-            color: white !important;
-            border: none !important;
-            padding: 12px !important;
-            font-size: 1em !important;
-            width: 100% !important;
-            cursor: pointer !important;
-            border-radius: 6px !important;
-            margin-bottom: 15px !important;
-        }
+	blockquote:before, blockquote:after, q:before, q:after {
+		content: '';
+		content: none;
+	}
 
-        /* === PRODUCTS === */
-        .products-area { flex: 1 !important; }
-        .products-header {
-            display: flex !important;
-            justify-content: space-between !important;
-            align-items: center !important;
-            margin-bottom: 20px !important;
-        }
-        .sort-select {
-            padding: 8px !important;
-            border: 1px solid #ddd !important;
-            border-radius: 4px !important;
-        }
-        .product-grid {
-            display: grid !important;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
-            gap: 20px !important;
-        }
-        .product-card {
-            background: white !important;
-            border-radius: 8px !important;
-            overflow: hidden !important;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
-            transition: transform 0.2s !important;
-        }
-        .product-card:hover { transform: translateY(-5px) !important; }
-        .product-image {
-            width: 100% !important;
-            height: 200px !important;
-            background: #eee !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            color: #999 !important;
-            font-size: 0.9em !important;
-        }
-        .product-info { padding: 15px !important; }
-        .product-title { font-weight: bold !important; margin-bottom: 5px !important; font-size: 1.1em !important; }
-        .product-price { color: #8B4513 !important; font-size: 1.2em !important; margin-bottom: 8px !important; }
-        .product-desc {
-            font-size: 0.9em !important;
-            color: #666 !important;
-            margin-bottom: 10px !important;
-            display: -webkit-box !important;
-            -webkit-line-clamp: 2 !important;
-            -webkit-box-orient: vertical !important;
-            overflow: hidden !important;
-        }
-        .btn {
-            background: #8B4513 !important;
-            color: white !important;
-            padding: 8px 16px !important;
-            border-radius: 4px !important;
-            display: inline-block !important;
-            font-size: 0.9em !important;
-        }
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
 
-        /* === RESPONSIVE === */
-        @media (max-width: 992px) {
-            .main-container { flex-direction: column !important; }
-            .filter-sidebar { width: 100% !important; position: static !important; display: none !important; }
-            .filter-sidebar.active { display: block !important; }
-            .mobile-filter-toggle { display: block !important; }
-        }
+body {
+	-webkit-text-size-adjust: none;
+}
 
-        /* === FOOTER === */
-        footer {
-            background: #333 !important;
-            color: white !important;
-            text-align: center !important;
-            padding: 25px !important;
-            margin-top: 50px !important;
-            font-size: 0.9em !important;
-        }
-    </style>
-</head>
-<body>
+mark {
+	background-color: transparent;
+	color: inherit;
+}
 
-    <!-- HEADER -->
-    <header class="site-header">
-        <h1 class="shop-logo">PatternsByYvonne</h1>
-        <p>Content creator | Crafter | Sewist | Graphic designer</p>
-        <nav>
-            <ul>
-                <li><a href="https://yvonnechow.com/index" class="icon solid fa-home"><span class="label">Home</span></a></li>
-                <li><a href="https://yvonnechow.com/products" class="icon solid fa-shopping-bag"><span class="label">Shop</span></a></li>
-                <li><a href="https://www.youtube.com/@Patterns.By.Yvonne" class="icon brands fa-youtube"><span class="label">YouTube</span></a></li>
-                <li><a href="https://www.instagram.com/patterns.by.yvonne" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                <li><a href="https://www.pinterest.com/patternsb/_boards/" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li>
-            </ul>
-        </nav>
-    </header>
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
 
-    <!-- MAIN CONTENT -->
-    <div class="main-container">
+input, select, textarea {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+}
 
-        <!-- MOBILE FILTER BUTTON -->
-        <button class="mobile-filter-toggle" onclick="toggleFilter()">Filters</button>
+/* Basic */
 
-        <!-- FILTER SIDEBAR (ONLY CATEGORY) -->
-        <aside class="filter-sidebar" id="filterSidebar">
-            <h3>Filter By</h3>
+	html {
+		box-sizing: border-box;
+	}
 
-            <!-- Category -->
-            <div class="filter-group">
-                <strong>Category</strong>
-                <label class="checkbox-label">
-                    <input type="checkbox" value="bags"> Bags & Totes
-                </label>
-                <label class="checkbox-label">
-                    <input type="checkbox" value="organizers"> Organizers
-                </label>
-            </div>
+	*, *:before, *:after {
+		box-sizing: inherit;
+	}
 
-            <button class="btn" style="width:100%;margin-top:10px;" onclick="applyFilters()">Apply Filters</button>
-            <button class="btn" style="width:100%;margin-top:8px;background:#666;" onclick="clearFilters()">Clear All</button>
-        </aside>
+	body {
+		background: #fff;
+		overflow: hidden;
+	}
 
-        <!-- PRODUCTS -->
-        <section class="products-area">
-            <div class="products-header">
-                <h2>Featured Patterns</h2>
-                <select class="sort-select" onchange="sortProducts(this.value)">
-                    <option value="relevance">Sort by: Relevance</option>
-                    <option value="price-low">Price: Low to High</option>
-                    <option value="price-high">Price: High to Low</option>
-                    <option value="newest">Newest First</option>
-                </select>
-            </div>
+		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
+			-moz-animation: none !important;
+			-webkit-animation: none !important;
+			-ms-animation: none !important;
+			animation: none !important;
+			-moz-transition: none !important;
+			-webkit-transition: none !important;
+			-ms-transition: none !important;
+			transition: none !important;
+		}
 
-            <div class="product-grid">
-                <!-- Product 1 -->
-                <div class="product-card" data-price="100" data-category="organizers">
-                    <div class="product-image">Camile Packing Cube</div>
-                    <div class="product-info">
-                        <div class="product-title">Camile Double-Sided Compression Packing Cube Sewing Pattern (2 Sizes)</div>
-                        <div class="product-price">HK$100</div>
-                        <div class="product-desc">Instant download PDF sewing pattern with full video and written instructions.</div>
-                        <a href="#" class="btn">View Product Details</a>
-                    </div>
-                </div>
+	body, input, select, textarea {
+		color: #fff;
+		font-family: 'Source Sans Pro', sans-serif;
+		font-size: 15pt;
+		font-weight: 300 !important;
+		letter-spacing: -0.025em;
+		line-height: 1.75em;
+	}
 
-                <!-- Product 2 -->
-                <div class="product-card" data-price="90" data-category="bags">
-                    <div class="product-image">Charlotte Tote Bag</div>
-                    <div class="product-info">
-                        <div class="product-title">Charlotte Tote Bag Sewing Pattern</div>
-                        <div class="product-price">HK$90</div>
-                        <div class="product-desc">Instant download PDF sewing pattern with full video and written instructions.</div>
-                        <a href="#" class="btn">View Product Details</a>
-                    </div>
-                </div>
+	a {
+		-moz-transition: border-color 0.2s ease-in-out;
+		-webkit-transition: border-color 0.2s ease-in-out;
+		-ms-transition: border-color 0.2s ease-in-out;
+		transition: border-color 0.2s ease-in-out;
+		border-bottom: dotted 1px;
+		color: inherit;
+		outline: 0;
+		text-decoration: none;
+	}
 
-                <!-- Product 3 -->
-                <div class="product-card" data-price="90" data-category="bags">
-                    <div class="product-image">Charmaine Drawstring Bag</div>
-                    <div class="product-info">
-                        <div class="product-title">Charmaine Drawstring Bag Sewing Pattern</div>
-                        <div class="product-price">HK$90</div>
-                        <div class="product-desc">Instant download PDF sewing pattern with full video and written instructions.</div>
-                        <a href="#" class="btn">View Product Details</a>
-                    </div>
-                </div>
+		a:hover {
+			border-color: transparent;
+		}
 
-                <!-- Product 4 -->
-                <div class="product-card" data-price="100" data-category="organizers">
-                    <div class="product-image">Open-Up Pouch</div>
-                    <div class="product-info">
-                        <div class="product-title">Open-Up Pouch Sewing Pattern</div>
-                        <div class="product-price">HK$100</div>
-                        <div class="product-desc">Compact crossbody with adjustable strap and zipper pocket. Perfect for daily use.</div>
-                        <a href="#" class="btn">View Product Details</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
+/* Icon */
 
-    <!-- FOOTER -->
-    <footer>
-        <p>© 2025 PatternsByYvonne. All rights reserved.</p>
-    </footer>
+	.icon {
+		text-decoration: none;
+		position: relative;
+	}
 
-    <!-- FILTER SCRIPT (CATEGORY ONLY) -->
-    <script>
-        function toggleFilter() {
-            const sidebar = document.getElementById('filterSidebar');
-            if (sidebar) sidebar.classList.toggle('active');
-        }
+		.icon:before {
+			-moz-osx-font-smoothing: grayscale;
+			-webkit-font-smoothing: antialiased;
+			display: inline-block;
+			font-style: normal;
+			font-variant: normal;
+			text-rendering: auto;
+			line-height: 1;
+			text-transform: none !important;
+			font-family: 'Font Awesome 5 Free';
+			font-weight: 400;
+		}
 
-        function applyFilters() {
-            const products = document.querySelectorAll('.product-card');
-            const selectedCategories = Array.from(
-                document.querySelectorAll('.checkbox-label input[type="checkbox"]:checked')
-            ).map(cb => cb.value.toLowerCase());
+		.icon > .label {
+			display: none;
+		}
 
-            let visibleCount = 0;
-            products.forEach(product => {
-                const category = (product.dataset.category || '').toLowerCase();
-                const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(category);
+		.icon.solid:before {
+			font-weight: 900;
+		}
 
-                product.style.display = categoryMatch ? 'block' : 'none';
-                if (categoryMatch) visibleCount++;
-            });
+		.icon.brands:before {
+			font-family: 'Font Awesome 5 Brands';
+		}
 
-            const header = document.querySelector('h2');
-            if (header) header.textContent = `Featured Patterns (${visibleCount})`;
+/* Wrapper */
 
-            if (window.innerWidth <= 992) {
-                document.getElementById('filterSidebar')?.classList.remove('active');
-            }
-        }
+	@-moz-keyframes wrapper {
+		0% {
+			opacity: 0;
+		}
 
-        function clearFilters() {
-            document.querySelectorAll('.checkbox-label input[type="checkbox"]').forEach(cb => cb.checked = false);
-            document.querySelectorAll('.product-card').forEach(p => p.style.display = 'block');
-            document.querySelector('h2').textContent = 'Featured Patterns (4)';
-        }
+		100% {
+			opacity: 1;
+		}
+	}
 
-        function sortProducts(sortBy) {
-            const grid = document.querySelector('.product-grid');
-            const items = Array.from(grid.children);
+	@-webkit-keyframes wrapper {
+		0% {
+			opacity: 0;
+		}
 
-            items.sort((a, b) => {
-                const pa = parseFloat(a.dataset.price);
-                const pb = parseFloat(b.dataset.price);
-                if (sortBy === 'price-low') return pa - pb;
-                if (sortBy === 'price-high') return pb - pa;
-                if (sortBy === 'newest') return items.indexOf(b) - items.indexOf(a);
-                return 0;
-            });
+		100% {
+			opacity: 1;
+		}
+	}
 
-            grid.innerHTML = '';
-            items.forEach(item => grid.appendChild(item));
-            applyFilters();
-        }
+	@-ms-keyframes wrapper {
+		0% {
+			opacity: 0;
+		}
 
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.checkbox-label input')
-                .forEach(el => el.addEventListener('change', applyFilters));
-            applyFilters();
-        });
-    </script>
-</body>
-</html>
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@keyframes wrapper {
+		0% {
+			opacity: 0;
+		}
+
+		100% {
+			opacity: 1;
+		}
+	}
+
+	#wrapper {
+		-moz-animation: wrapper 3s forwards;
+		-webkit-animation: wrapper 3s forwards;
+		-ms-animation: wrapper 3s forwards;
+		animation: wrapper 3s forwards;
+		height: 100%;
+		left: 0;
+		opacity: 0;
+		position: fixed;
+		top: 0;
+		width: 100%;
+	}
+
+/* BG */
+
+	#bg {
+		-moz-animation: bg 60s linear infinite;
+		-webkit-animation: bg 60s linear infinite;
+		-ms-animation: bg 60s linear infinite;
+		animation: bg 60s linear infinite;
+		-moz-backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+		-ms-backface-visibility: hidden;
+		backface-visibility: hidden;
+		-moz-transform: translate3d(0,0,0);
+		-webkit-transform: translate3d(0,0,0);
+		-ms-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+	/* Set your background with this */
+
+		background: #fbfcfc url("images/bg.jpg") bottom left;
+		background-repeat: repeat-x;
+		height: 100%;
+		left: 0;
+		opacity: 1;
+		position: fixed;
+		top: 0;
+	}
+
+	@-moz-keyframes bg {
+		0% {
+			-moz-transform: translate3d(0,0,0);
+			-webkit-transform: translate3d(0,0,0);
+			-ms-transform: translate3d(0,0,0);
+			transform: translate3d(0,0,0);
+		}
+
+		100% {
+			-moz-transform: translate3d(-2250px,0,0);
+			-webkit-transform: translate3d(-2250px,0,0);
+			-ms-transform: translate3d(-2250px,0,0);
+			transform: translate3d(-2250px,0,0);
+		}
+	}
+
+	@-webkit-keyframes bg {
+		0% {
+			-moz-transform: translate3d(0,0,0);
+			-webkit-transform: translate3d(0,0,0);
+			-ms-transform: translate3d(0,0,0);
+			transform: translate3d(0,0,0);
+		}
+
+		100% {
+			-moz-transform: translate3d(-2250px,0,0);
+			-webkit-transform: translate3d(-2250px,0,0);
+			-ms-transform: translate3d(-2250px,0,0);
+			transform: translate3d(-2250px,0,0);
+		}
+	}
+
+	@-ms-keyframes bg {
+		0% {
+			-moz-transform: translate3d(0,0,0);
+			-webkit-transform: translate3d(0,0,0);
+			-ms-transform: translate3d(0,0,0);
+			transform: translate3d(0,0,0);
+		}
+
+		100% {
+			-moz-transform: translate3d(-2250px,0,0);
+			-webkit-transform: translate3d(-2250px,0,0);
+			-ms-transform: translate3d(-2250px,0,0);
+			transform: translate3d(-2250px,0,0);
+		}
+	}
+
+	@keyframes bg {
+		0% {
+			-moz-transform: translate3d(0,0,0);
+			-webkit-transform: translate3d(0,0,0);
+			-ms-transform: translate3d(0,0,0);
+			transform: translate3d(0,0,0);
+		}
+
+		100% {
+			-moz-transform: translate3d(-2250px,0,0);
+			-webkit-transform: translate3d(-2250px,0,0);
+			-ms-transform: translate3d(-2250px,0,0);
+			transform: translate3d(-2250px,0,0);
+		}
+	}
+
+	#bg {
+		background-size: 2250px auto;
+		width: 6750px;
+	}
+
+/* Overlay */
+
+	@-moz-keyframes overlay {
+		0% {
+			opacity: 0;
+		}
+
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@-webkit-keyframes overlay {
+		0% {
+			opacity: 0;
+		}
+
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@-ms-keyframes overlay {
+		0% {
+			opacity: 0;
+		}
+
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@keyframes overlay {
+		0% {
+			opacity: 0;
+		}
+
+		100% {
+			opacity: 1;
+		}
+	}
+
+	#overlay {
+		-moz-animation: overlay 1.5s 1.5s forwards;
+		-webkit-animation: overlay 1.5s 1.5s forwards;
+		-ms-animation: overlay 1.5s 1.5s forwards;
+		animation: overlay 1.5s 1.5s forwards;
+		background-attachment: fixed, fixed;
+		background-image: url("images/overlay-pattern.png"), url("images/overlay.svg");
+		background-position: top left, center center;
+		background-repeat: repeat, no-repeat;
+		background-size: auto, cover;
+		height: 100%;
+		left: 0;
+		opacity: 0;
+		position: fixed;
+		top: 0;
+		width: 100%;
+	}
+
+/* Main */
+
+	#main {
+		height: 100%;
+		left: 0;
+		position: fixed;
+		text-align: center;
+		top: 0;
+		width: 100%;
+	}
+
+		#main:before {
+			content: '';
+			display: inline-block;
+			height: 100%;
+			margin-right: 0;
+			vertical-align: middle;
+			width: 1px;
+		}
+
+/* Header */
+
+	@-moz-keyframes header {
+		0% {
+			-moz-transform: translate3d(0,1em,0);
+			-webkit-transform: translate3d(0,1em,0);
+			-ms-transform: translate3d(0,1em,0);
+			transform: translate3d(0,1em,0);
+			opacity: 0;
+		}
+
+		100% {
+			-moz-transform: translate3d(0,0,0);
+			-webkit-transform: translate3d(0,0,0);
+			-ms-transform: translate3d(0,0,0);
+			transform: translate3d(0,0,0);
+			opacity: 1;
+		}
+	}
+
+	@-webkit-keyframes header {
+		0% {
+			-moz-transform: translate3d(0,1em,0);
+			-webkit-transform: translate3d(0,1em,0);
+			-ms-transform: translate3d(0,1em,0);
+			transform: translate3d(0,1em,0);
+			opacity: 0;
+		}
+
+		100% {
+			-moz-transform: translate3d(0,0,0);
+			-webkit-transform: translate3d(0,0,0);
+			-ms-transform: translate3d(0,0,0);
+			transform: translate3d(0,0,0);
+			opacity: 1;
+		}
+	}
+
+	@-ms-keyframes header {
+		0% {
+			-moz-transform: translate3d(0,1em,0);
+			-webkit-transform: translate3d(0,1em,0);
+			-ms-transform: translate3d(0,1em,0);
+			transform: translate3d(0,1em,0);
+			opacity: 0;
+		}
+
+		100% {
+			-moz-transform: translate3d(0,0,0);
+			-webkit-transform: translate3d(0,0,0);
+			-ms-transform: translate3d(0,0,0);
+			transform: translate3d(0,0,0);
+			opacity: 1;
+		}
+	}
+
+	@keyframes header {
+		0% {
+			-moz-transform: translate3d(0,1em,0);
+			-webkit-transform: translate3d(0,1em,0);
+			-ms-transform: translate3d(0,1em,0);
+			transform: translate3d(0,1em,0);
+			opacity: 0;
+		}
+
+		100% {
+			-moz-transform: translate3d(0,0,0);
+			-webkit-transform: translate3d(0,0,0);
+			-ms-transform: translate3d(0,0,0);
+			transform: translate3d(0,0,0);
+			opacity: 1;
+		}
+	}
+
+	@-moz-keyframes nav-icons {
+		0% {
+			-moz-transform: translate3d(0,1em,0);
+			-webkit-transform: translate3d(0,1em,0);
+			-ms-transform: translate3d(0,1em,0);
+			transform: translate3d(0,1em,0);
+			opacity: 0;
+		}
+
+		100% {
+			-moz-transform: translate3d(0,0,0);
+			-webkit-transform: translate3d(0,0,0);
+			-ms-transform: translate3d(0,0,0);
+			transform: translate3d(0,0,0);
+			opacity: 1;
+		}
+	}
+
+	@-webkit-keyframes nav-icons {
+		0% {
+			-moz-transform: translate3d(0,1em,0);
+			-webkit-transform: translate3d(0,1em,0);
+			-ms-transform: translate3d(0,1em,0);
+			transform: translate3d(0,1em,0);
+			opacity: 0;
+		}
+
+		100% {
+			-moz-transform: translate3d(0,0,0);
+			-webkit-transform: translate3d(0,0,0);
+			-ms-transform: translate3d(0,0,0);
+			transform: translate3d(0,0,0);
+			opacity: 1;
+		}
+	}
+
+	@-ms-keyframes nav-icons {
+		0% {
+			-moz-transform: translate3d(0,1em,0);
+			-webkit-transform: translate3d(0,1em,0);
+			-ms-transform: translate3d(0,1em,0);
+			transform: translate3d(0,1em,0);
+			opacity: 0;
+		}
+
+		100% {
+			-moz-transform: translate3d(0,0,0);
+			-webkit-transform: translate3d(0,0,0);
+			-ms-transform: translate3d(0,0,0);
+			transform: translate3d(0,0,0);
+			opacity: 1;
+		}
+	}
+
+	@keyframes nav-icons {
+		0% {
+			-moz-transform: translate3d(0,1em,0);
+			-webkit-transform: translate3d(0,1em,0);
+			-ms-transform: translate3d(0,1em,0);
+			transform: translate3d(0,1em,0);
+			opacity: 0;
+		}
+
+		100% {
+			-moz-transform: translate3d(0,0,0);
+			-webkit-transform: translate3d(0,0,0);
+			-ms-transform: translate3d(0,0,0);
+			transform: translate3d(0,0,0);
+			opacity: 1;
+		}
+	}
+
+	#header {
+		-moz-animation: header 1s 2.25s forwards;
+		-webkit-animation: header 1s 2.25s forwards;
+		-ms-animation: header 1s 2.25s forwards;
+		animation: header 1s 2.25s forwards;
+		-moz-backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+		-ms-backface-visibility: hidden;
+		backface-visibility: hidden;
+		-moz-transform: translate3d(0,0,0);
+		-webkit-transform: translate3d(0,0,0);
+		-ms-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+		cursor: default;
+		display: inline-block;
+		opacity: 0;
+		position: relative;
+		text-align: center;
+		top: -1em;
+		vertical-align: middle;
+		width: 90%;
+	}
+
+		#header h1 {
+			font-size: 4.35em;
+			font-weight: 900;
+			letter-spacing: -0.035em;
+			line-height: 1em;
+			color: #868686 !important;
+		}
+
+		#header p {
+			font-size: 1.25em;
+			margin: 0.75em 0 0.25em 0;
+			opacity: 0.75;
+			color: #868686 !important;
+		}
+
+		#header nav {
+			margin: 1.5em 0 0 0;
+			color: #868686 !important;
+		}
+
+			#header nav li {
+				-moz-animation: nav-icons 0.5s ease-in-out forwards;
+				-webkit-animation: nav-icons 0.5s ease-in-out forwards;
+				-ms-animation: nav-icons 0.5s ease-in-out forwards;
+				animation: nav-icons 0.5s ease-in-out forwards;
+				-moz-backface-visibility: hidden;
+				-webkit-backface-visibility: hidden;
+				-ms-backface-visibility: hidden;
+				backface-visibility: hidden;
+				-moz-transform: translate3d(0,0,0);
+				-webkit-transform: translate3d(0,0,0);
+				-ms-transform: translate3d(0,0,0);
+				transform: translate3d(0,0,0);
+				display: inline-block;
+				height: 5.35em;
+				line-height: 5.885em;
+				opacity: 0;
+				position: relative;
+				top: 0;
+				width: 5.35em;
+			}
+
+				#header nav li:nth-child(1) {
+					-moz-animation-delay: 2.5s;
+					-webkit-animation-delay: 2.5s;
+					-ms-animation-delay: 2.5s;
+					animation-delay: 2.5s;
+				}
+
+				#header nav li:nth-child(2) {
+					-moz-animation-delay: 2.75s;
+					-webkit-animation-delay: 2.75s;
+					-ms-animation-delay: 2.75s;
+					animation-delay: 2.75s;
+				}
+
+				#header nav li:nth-child(3) {
+					-moz-animation-delay: 3s;
+					-webkit-animation-delay: 3s;
+					-ms-animation-delay: 3s;
+					animation-delay: 3s;
+				}
+
+				#header nav li:nth-child(4) {
+					-moz-animation-delay: 3.25s;
+					-webkit-animation-delay: 3.25s;
+					-ms-animation-delay: 3.25s;
+					animation-delay: 3.25s;
+				}
+
+				#header nav li:nth-child(5) {
+					-moz-animation-delay: 3.5s;
+					-webkit-animation-delay: 3.5s;
+					-ms-animation-delay: 3.5s;
+					animation-delay: 3.5s;
+				}
+
+				#header nav li:nth-child(6) {
+					-moz-animation-delay: 3.75s;
+					-webkit-animation-delay: 3.75s;
+					-ms-animation-delay: 3.75s;
+					animation-delay: 3.75s;
+				}
+
+				#header nav li:nth-child(7) {
+					-moz-animation-delay: 4s;
+					-webkit-animation-delay: 4s;
+					-ms-animation-delay: 4s;
+					animation-delay: 4s;
+				}
+
+				#header nav li:nth-child(8) {
+					-moz-animation-delay: 4.25s;
+					-webkit-animation-delay: 4.25s;
+					-ms-animation-delay: 4.25s;
+					animation-delay: 4.25s;
+				}
+
+				#header nav li:nth-child(9) {
+					-moz-animation-delay: 4.5s;
+					-webkit-animation-delay: 4.5s;
+					-ms-animation-delay: 4.5s;
+					animation-delay: 4.5s;
+				}
+
+				#header nav li:nth-child(10) {
+					-moz-animation-delay: 4.75s;
+					-webkit-animation-delay: 4.75s;
+					-ms-animation-delay: 4.75s;
+					animation-delay: 4.75s;
+				}
+
+			#header nav a {
+				-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+				-webkit-touch-callout: none;
+				border: 0;
+				display: inline-block;
+			}
+
+				#header nav a:before {
+					-moz-transition: all 0.2s ease-in-out;
+					-webkit-transition: all 0.2s ease-in-out;
+					-ms-transition: all 0.2s ease-in-out;
+					transition: all 0.2s ease-in-out;
+					border-radius: 100%;
+					border: solid 1px #868686;
+					display: block;
+					font-size: 1.75em;
+					height: 2.5em;
+					line-height: 2.5em;
+					position: relative;
+					text-align: center;
+					top: 0;
+					width: 2.5em;
+				}
+
+				#header nav a:hover {
+					font-size: 1.1em;
+				}
+
+					#header nav a:hover:before {
+						background-color: rgba(255, 255, 255, 0.175);
+						color: #000000 !important;
+					}
+
+				#header nav a:active {
+					font-size: 0.95em;
+					background: none;
+				}
+
+					#header nav a:active:before {
+						background-color: rgba(255, 255, 255, 0.35);
+						color: #fff;
+					}
+
+				#header nav a span {
+					display: none;
+				}
+
+/* Footer */
+
+	#footer {
+		background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.5) 75%);
+		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.5) 75%);
+		background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.5) 75%);
+		background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.5) 75%);
+		bottom: 0;
+		cursor: default;
+		height: 6em;
+		left: 0;
+		line-height: 8em;
+		position: absolute;
+		text-align: center;
+		width: 100%;
+	}
+
+/* Wide */
+
+	@media screen and (max-width: 1680px) {
+
+		/* Basic */
+
+			body, input, select, textarea {
+				font-size: 13pt;
+			}
+
+		/* BG */
+
+			@-moz-keyframes bg {
+				0% {
+					-moz-transform: translate3d(0,0,0);
+					-webkit-transform: translate3d(0,0,0);
+					-ms-transform: translate3d(0,0,0);
+					transform: translate3d(0,0,0);
+				}
+
+				100% {
+					-moz-transform: translate3d(-1500px,0,0);
+					-webkit-transform: translate3d(-1500px,0,0);
+					-ms-transform: translate3d(-1500px,0,0);
+					transform: translate3d(-1500px,0,0);
+				}
+
+	}
+
+		@-webkit-keyframes bg {
+			0% {
+				-moz-transform: translate3d(0,0,0);
+				-webkit-transform: translate3d(0,0,0);
+				-ms-transform: translate3d(0,0,0);
+				transform: translate3d(0,0,0);
+			}
+
+			100% {
+				-moz-transform: translate3d(-1500px,0,0);
+				-webkit-transform: translate3d(-1500px,0,0);
+				-ms-transform: translate3d(-1500px,0,0);
+				transform: translate3d(-1500px,0,0);
+			}
+			}
+
+		@-ms-keyframes bg {
+			0% {
+				-moz-transform: translate3d(0,0,0);
+				-webkit-transform: translate3d(0,0,0);
+				-ms-transform: translate3d(0,0,0);
+				transform: translate3d(0,0,0);
+			}
+
+			100% {
+				-moz-transform: translate3d(-1500px,0,0);
+				-webkit-transform: translate3d(-1500px,0,0);
+				-ms-transform: translate3d(-1500px,0,0);
+				transform: translate3d(-1500px,0,0);
+			}
+		}
+
+		@keyframes bg {
+			0% {
+				-moz-transform: translate3d(0,0,0);
+				-webkit-transform: translate3d(0,0,0);
+				-ms-transform: translate3d(0,0,0);
+				transform: translate3d(0,0,0);
+			}
+
+			100% {
+				-moz-transform: translate3d(-1500px,0,0);
+				-webkit-transform: translate3d(-1500px,0,0);
+				-ms-transform: translate3d(-1500px,0,0);
+				transform: translate3d(-1500px,0,0);
+			}
+		}
+
+		#bg {
+			background-size: 1500px auto;
+			width: 4500px;
+		} }
+
+/* Normal */
+
+	@media screen and (max-width: 1280px) {
+
+		/* Basic */
+
+			body, input, select, textarea {
+				font-size: 12pt;
+			}
+
+		/* BG */
+
+			@-moz-keyframes bg {
+				0% {
+					-moz-transform: translate3d(0,0,0);
+					-webkit-transform: translate3d(0,0,0);
+					-ms-transform: translate3d(0,0,0);
+					transform: translate3d(0,0,0);
+				}
+
+				100% {
+					-moz-transform: translate3d(-750px,0,0);
+					-webkit-transform: translate3d(-750px,0,0);
+					-ms-transform: translate3d(-750px,0,0);
+					transform: translate3d(-750px,0,0);
+				}
+
+	}
+
+		@-webkit-keyframes bg {
+			0% {
+				-moz-transform: translate3d(0,0,0);
+				-webkit-transform: translate3d(0,0,0);
+				-ms-transform: translate3d(0,0,0);
+				transform: translate3d(0,0,0);
+			}
+
+			100% {
+				-moz-transform: translate3d(-750px,0,0);
+				-webkit-transform: translate3d(-750px,0,0);
+				-ms-transform: translate3d(-750px,0,0);
+				transform: translate3d(-750px,0,0);
+			}
+			}
+
+		@-ms-keyframes bg {
+			0% {
+				-moz-transform: translate3d(0,0,0);
+				-webkit-transform: translate3d(0,0,0);
+				-ms-transform: translate3d(0,0,0);
+				transform: translate3d(0,0,0);
+			}
+
+			100% {
+				-moz-transform: translate3d(-750px,0,0);
+				-webkit-transform: translate3d(-750px,0,0);
+				-ms-transform: translate3d(-750px,0,0);
+				transform: translate3d(-750px,0,0);
+			}
+		}
+
+		@keyframes bg {
+			0% {
+				-moz-transform: translate3d(0,0,0);
+				-webkit-transform: translate3d(0,0,0);
+				-ms-transform: translate3d(0,0,0);
+				transform: translate3d(0,0,0);
+			}
+
+			100% {
+				-moz-transform: translate3d(-750px,0,0);
+				-webkit-transform: translate3d(-750px,0,0);
+				-ms-transform: translate3d(-750px,0,0);
+				transform: translate3d(-750px,0,0);
+			}
+		}
+
+		#bg {
+			background-size: 750px auto;
+			width: 2250px;
+		} }
+
+/* Mobile */
+
+	@media screen and (max-width: 736px) {
+
+		/* Basic */
+
+			body {
+				min-width: 320px;
+			}
+
+			body, input, select, textarea {
+				font-size: 11pt;
+			}
+
+		/* BG */
+
+			@-moz-keyframes bg {
+				0% {
+					-moz-transform: translate3d(0,0,0);
+					-webkit-transform: translate3d(0,0,0);
+					-ms-transform: translate3d(0,0,0);
+					transform: translate3d(0,0,0);
+				}
+
+				100% {
+					-moz-transform: translate3d(-300px,0,0);
+					-webkit-transform: translate3d(-300px,0,0);
+					-ms-transform: translate3d(-300px,0,0);
+					transform: translate3d(-300px,0,0);
+				}
+
+	}
+
+		@-webkit-keyframes bg {
+			0% {
+				-moz-transform: translate3d(0,0,0);
+				-webkit-transform: translate3d(0,0,0);
+				-ms-transform: translate3d(0,0,0);
+				transform: translate3d(0,0,0);
+			}
+
+			100% {
+				-moz-transform: translate3d(-300px,0,0);
+				-webkit-transform: translate3d(-300px,0,0);
+				-ms-transform: translate3d(-300px,0,0);
+				transform: translate3d(-300px,0,0);
+			}
+			}
+
+		@-ms-keyframes bg {
+			0% {
+				-moz-transform: translate3d(0,0,0);
+				-webkit-transform: translate3d(0,0,0);
+				-ms-transform: translate3d(0,0,0);
+				transform: translate3d(0,0,0);
+			}
+
+			100% {
+				-moz-transform: translate3d(-300px,0,0);
+				-webkit-transform: translate3d(-300px,0,0);
+				-ms-transform: translate3d(-300px,0,0);
+				transform: translate3d(-300px,0,0);
+			}
+		}
+
+		@keyframes bg {
+			0% {
+				-moz-transform: translate3d(0,0,0);
+				-webkit-transform: translate3d(0,0,0);
+				-ms-transform: translate3d(0,0,0);
+				transform: translate3d(0,0,0);
+			}
+
+			100% {
+				-moz-transform: translate3d(-300px,0,0);
+				-webkit-transform: translate3d(-300px,0,0);
+				-ms-transform: translate3d(-300px,0,0);
+				transform: translate3d(-300px,0,0);
+			}
+		}
+
+		#bg {
+			background-size: 300px auto;
+			width: 900px;
+		}
+
+	/* Header */
+
+		#header h1 {
+			font-size: 2.5em;
+		}
+
+		#header p {
+			font-size: 1em;
+		}
+
+		#header nav {
+			font-size: 1em;
+		}
+
+			#header nav a:hover {
+				font-size: 1em;
+			}
+
+			#header nav a:active {
+				font-size: 1em;
+			} }
+
+/* Mobile (Portrait) */
+
+	@media screen and (max-width: 480px) {
+
+		/* BG */
+
+			@-moz-keyframes bg {
+				0% {
+					-moz-transform: translate3d(0,0,0);
+					-webkit-transform: translate3d(0,0,0);
+					-ms-transform: translate3d(0,0,0);
+					transform: translate3d(0,0,0);
+				}
+
+				100% {
+					-moz-transform: translate3d(-412.5px,0,0);
+					-webkit-transform: translate3d(-412.5px,0,0);
+					-ms-transform: translate3d(-412.5px,0,0);
+					transform: translate3d(-412.5px,0,0);
+				}
+
+	}
+
+		@-webkit-keyframes bg {
+			0% {
+				-moz-transform: translate3d(0,0,0);
+				-webkit-transform: translate3d(0,0,0);
+				-ms-transform: translate3d(0,0,0);
+				transform: translate3d(0,0,0);
+			}
+
+			100% {
+				-moz-transform: translate3d(-412.5px,0,0);
+				-webkit-transform: translate3d(-412.5px,0,0);
+				-ms-transform: translate3d(-412.5px,0,0);
+				transform: translate3d(-412.5px,0,0);
+			}
+			}
+
+		@-ms-keyframes bg {
+			0% {
+				-moz-transform: translate3d(0,0,0);
+				-webkit-transform: translate3d(0,0,0);
+				-ms-transform: translate3d(0,0,0);
+				transform: translate3d(0,0,0);
+			}
+
+			100% {
+				-moz-transform: translate3d(-412.5px,0,0);
+				-webkit-transform: translate3d(-412.5px,0,0);
+				-ms-transform: translate3d(-412.5px,0,0);
+				transform: translate3d(-412.5px,0,0);
+			}
+		}
+
+		@keyframes bg {
+			0% {
+				-moz-transform: translate3d(0,0,0);
+				-webkit-transform: translate3d(0,0,0);
+				-ms-transform: translate3d(0,0,0);
+				transform: translate3d(0,0,0);
+			}
+
+			100% {
+				-moz-transform: translate3d(-412.5px,0,0);
+				-webkit-transform: translate3d(-412.5px,0,0);
+				-ms-transform: translate3d(-412.5px,0,0);
+				transform: translate3d(-412.5px,0,0);
+			}
+		}
+
+		#bg {
+			background-size: 412.5px auto;
+			width: 1237.5px;
+		}
+
+	/* Header */
+
+		#header nav {
+			padding: 0 1em;
+		} }
+
+
+/* CUSTOM CHECKBOX */
+.filter-group input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 18px !important;
+    height: 18px !important;
+    border: 2px solid #8B4513 !important;
+    border-radius: 4px !important;
+    margin-right: 10px !important;
+    position: relative !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+}
+.filter-group input[type="checkbox"]:checked {
+    background-color: #8B4513 !important;
+    border-color: #8B4513 !important;
+}
+.filter-group input[type="checkbox"]:checked::after {
+    content: '✓';
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 14px !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+/* LABEL CURSOR */
+.checkbox-label {
+    display: flex !important;
+    align-items: center !important;
+    margin: 10px 0 !important;
+    font-size: 0.95em !important;
+    cursor: pointer !important;
+    user-select: none !important;
+    gap: 8px !important;
+}
+
+/* === PERFECTLY CENTERED CHECKBOX + TEXT === */
+.checkbox-label {
+    display: flex !important;
+    align-items: center !important;     /* VERTICAL CENTER */
+    justify-content: flex-start !important;
+    margin: 12px 0 !important;
+    font-size: 0.95em !important;
+    cursor: pointer !important;
+    user-select: none !important;
+    gap: 10px !important;               /* Space between checkbox and text */
+    line-height: 1.4 !important;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin: 0 !important;               /* Remove default margin */
+    flex-shrink: 0 !important;          /* Prevent shrinking */
+}
+
+/* === RESPONSIVE PRODUCT IMAGES === */
+.product-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;   /* Keeps aspect ratio, no stretching */
+    display: block !important;
+    border-radius: 8px 8px 0 0 !important;
+}
