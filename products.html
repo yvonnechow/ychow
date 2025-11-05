@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Patterns By Yvonne - Products</title>
+    <title>PatternsByYvonne - Shop</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -125,7 +125,7 @@
             border-color: #8B4513 !important;
         }
         .checkbox-label input[type="checkbox"]:checked::after {
-            content: '✓';
+            content: 'Checkmark';
             color: white !important;
             font-weight: bold !important;
             font-size: 13px !important;
@@ -149,25 +149,34 @@
             margin-bottom: 15px !important;
         }
 
-        /* === SEARCH BAR === */
+        /* === SEARCH BAR (TEXT = BLACK) === */
+        .search-container {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+        }
         .search-bar {
             flex: 1 !important;
-            max-width: 400px !important;
+            max-width: 300px !important;
             padding: 10px 14px !important;
-            font-size: 1em !important;
+            font-size: 0.95em !important;
             border: 1px solid #ddd !important;
             border-radius: 6px !important;
             outline: none !important;
             transition: border 0.2s !important;
+            color: #000 !important;           /* TEXT COLOR: BLACK */
+            background-color: #fff !important;
+        }
+        .search-bar::placeholder {
+            color: #999 !important;
         }
         .search-bar:focus {
             border-color: #8B4513 !important;
             box-shadow: 0 0 0 2px rgba(139, 69, 19, 0.2) !important;
         }
         .search-icon {
-            margin-left: 10px !important;
             color: #666 !important;
-            font-size: 1.2em !important;
+            font-size: 1.1em !important;
         }
 
         /* === PRODUCTS === */
@@ -196,14 +205,12 @@
         .product-image {
             width: 100% !important;
             height: 200px !important;
-            overflow: hidden !important;
-        }
-        .product-image img {
-            width: 100% !important;
-            height: 100% !important;
-            object-fit: cover !important;
-            display: block !important;
-            border-radius: 8px 8px 0 0 !important;
+            background: #eee !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: #999 !important;
+            font-size: 0.9em !important;
         }
         .product-info { padding: 15px !important; }
         .product-title { font-weight: bold !important; margin-bottom: 5px !important; font-size: 1.1em !important; }
@@ -217,6 +224,7 @@
             -webkit-box-orient: vertical !important;
             overflow: hidden !important;
         }
+        .stars { color: #f39c12 !important; }
         .btn {
             background: #8B4513 !important;
             color: white !important;
@@ -233,7 +241,8 @@
             .filter-sidebar.active { display: block !important; }
             .mobile-filter-toggle { display: block !important; }
             .products-header { flex-direction: column !important; align-items: stretch !important; }
-            .search-bar { margin-bottom: 10px !important; }
+            .search-container { width: 100% !important; max-width: none !important; }
+            .search-bar { max-width: none !important; }
         }
 
         /* === FOOTER === */
@@ -251,7 +260,7 @@
 
     <!-- HEADER -->
     <header class="site-header">
-        <h1 class="shop-logo">Patterns By Yvonne</h1>
+        <h1 class="shop-logo">PatternsByYvonne</h1>
         <p></p>
         <nav>
             <ul>
@@ -268,13 +277,11 @@
     <div class="main-container">
 
         <!-- MOBILE FILTER BUTTON -->
-        <button class="mobile-filter-toggle" onclick="toggleFilter()">
-            <i class="fas fa-filter"></i> Filters
-        </button>
+        <button class="mobile-filter-toggle" onclick="toggleFilter()">Filters</button>
 
-        <!-- FILTER SIDEBAR (CATEGORY ONLY) -->
+        <!-- FILTER SIDEBAR -->
         <aside class="filter-sidebar" id="filterSidebar">
-            <h3>Category</h3>
+            <h3>Filter By</h3>
 
             <!-- Category -->
             <div class="filter-group">
@@ -291,14 +298,14 @@
         <section class="products-area">
             <div class="products-header">
                 <h2>Featured Patterns</h2>
-                <div style="display: flex; align-items: center; gap: 10px;">
+                <div class="search-container">
                     <input type="text" id="searchInput" class="search-bar" placeholder="Search patterns...">
                     <i class="fas fa-search search-icon"></i>
                 </div>
             </div>
 
             <div class="product-grid">
-                               <!-- Product 1 -->
+                 <!-- Product 1 -->
                 <div class="product-card" data-price="100" data-category="organizers">
 				  <div class="product-image"><img src="assets/images-product/SKU-S002-2510 Etsy 1.jpg" alt="Camile Packing Cube"></div>
                     <div class="product-info">
@@ -362,15 +369,15 @@
         }
 
         function applyFilters() {
-            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            const query = document.getElementById('searchInput')?.value.trim().toLowerCase() || '';
             const selectedCategories = Array.from(
                 document.querySelectorAll('.checkbox-label input[type="checkbox"]:checked')
             ).map(cb => cb.value.toLowerCase());
 
             let visibleCount = 0;
             document.querySelectorAll('.product-card').forEach(product => {
-                const title = product.querySelector('.product-title').textContent.toLowerCase();
-                const desc = product.querySelector('.product-desc').textContent.toLowerCase();
+                const title = product.querySelector('.product-title')?.textContent.toLowerCase() || '';
+                const desc = product.querySelector('.product-desc')?.textContent.toLowerCase() || '';
                 const category = (product.dataset.category || '').toLowerCase();
 
                 const matchesSearch = !query || title.includes(query) || desc.includes(query);
@@ -391,20 +398,20 @@
 
         function clearFilters() {
             document.querySelectorAll('.checkbox-label input[type="checkbox"]').forEach(cb => cb.checked = false);
-            document.getElementById('searchInput').value = '';
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) searchInput.value = '';
             document.querySelectorAll('.product-card').forEach(p => p.style.display = 'block');
             document.querySelector('h2').textContent = 'Featured Patterns (6)';
         }
 
-        // Real-time search + filter
         document.addEventListener('DOMContentLoaded', () => {
             const searchInput = document.getElementById('searchInput');
             const checkboxes = document.querySelectorAll('.checkbox-label input');
 
-            searchInput.addEventListener('keyup', applyFilters);
+            if (searchInput) searchInput.addEventListener('keyup', applyFilters);
             checkboxes.forEach(cb => cb.addEventListener('change', applyFilters));
 
-            applyFilters(); // Initial load
+            applyFilters();
         });
     </script>
 </body>
