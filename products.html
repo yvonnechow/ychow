@@ -11,7 +11,37 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <style>
-        /* === FORCE SCROLL & CLEAN LAYOUT === */
+        /* === CUSTOM VISIBLE CHECKBOXES === */
+.filter-group input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 18px !important;
+    height: 18px !important;
+    border: 2px solid #8B4513 !important;
+    border-radius: 4px !important;
+    margin-right: 10px !important;
+    position: relative !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+}
+
+.filter-group input[type="checkbox"]:checked {
+    background-color: #8B4513 !important;
+    border-color: #8B4513 !important;
+}
+
+.filter-group input[type="checkbox"]:checked::after {
+    content: '✓';
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 14px !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+		/* === FORCE SCROLL & CLEAN LAYOUT === */
         * { box-sizing: border-box; }
         body {
             overflow-y: auto !important;
@@ -234,17 +264,13 @@
       <aside class="filter-sidebar" id="filterSidebar">
             <h3>Filter By</h3>
 
-            <!-- Category -->
-        <div class="filter-group">
-                <strong>Category</strong>
-			     <label><input type="checkbox" value="All"> All Patterns</label>
-                <label><input type="checkbox" value="Organizers"> Organizers</label>
-                <label><input type="checkbox" value="Bags"> Bags & Totes</label>
-          </div>
-
-          <!-- Price -->
-<button class="btn" style="width:100%;margin-top:10px;" onclick="applyFilters()">Apply Filters</button>
-            <button class="btn" style="width:100%;margin-top:8px;background:#666;" onclick="clearFilters()">Clear All</button>
+		  <!-- Category -->
+<div class="filter-group">
+    <strong>Category</strong>
+    <label class="checkbox-label"> <input type="checkbox" value="All"> All Patterns </label>
+    <label class="checkbox-label"> <input type="checkbox" value="Bags"> Bags & Totes </label>
+    <label class="checkbox-label"> <input type="checkbox" value="Organizers"> Organizers </label>
+</div>  
         </aside>
 
         <!-- PRODUCTS -->
